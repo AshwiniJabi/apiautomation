@@ -6,10 +6,11 @@ Feature: Validating the Google APIs
     Then API call is success with the status code 200
     And "status" in the response body is "OK"
     And "scope" in the response body is "APP" 
+    And Verify the "<name>" using "GetPlaceApi"
   Examples:
  |name|language|address|
  |AAhouse|English|Shantinagar|
- |BBHouse|French|Keshwapur|
+# |BBHouse|French|Keshwapur|
  
 
   

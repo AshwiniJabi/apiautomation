@@ -13,6 +13,8 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.parsing.Parser;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
@@ -29,7 +31,7 @@ public class SpecBuildersUtils {
 				 addFilter(RequestLoggingFilter.logRequestTo(stream)).
 		
 				addFilter(ResponseLoggingFilter.logResponseTo(stream)). 
-		addQueryParam(prop.getProperty("key")).
+		addQueryParam("key",prop.getProperty("key")).
 		setContentType(ContentType.JSON).build();
 		 return request;
 		}
@@ -60,9 +62,11 @@ public class SpecBuildersUtils {
 	      return prop;
 	}
 	
-	public String getValuesFromProp() {
+	public String getValuesFromJson(Response response,String key) {
+		JsonPath json = new JsonPath(response.asString()); 
+		String value = json.get(key).toString();
 		
-		return null;
+		return value;
 		
 	}
 }

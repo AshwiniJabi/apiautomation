@@ -3,7 +3,7 @@ package com.Resources;
 public enum GoogleAPIResources {
 	
 		AddPlaceApi("maps/api/place/add"),
-		GetPLaceApi("maps/api/place/get"),
+		GetPlaceApi("maps/api/place/get/json"),
 		DeletePLaceApi("maps/api/place/delete");
 		private String resource;
 		GoogleAPIResources(String string) {
