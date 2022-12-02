@@ -11,6 +11,12 @@ Feature: Validating the Google APIs
  |name|language|address|
  |AAhouse|English|Shantinagar|
 # |BBHouse|French|Keshwapur|
- 
+
+
+ Scenario Outline: Verify if delete place is working using DeletePLaceApi
+ 	Given User has the payload for DeletePlace
+ 	When User call the "DeletePLaceApi" "DELETE" http request
+ 	Then API call is success with the status code 200
+  And "status" in the response body is "OK"
 
   

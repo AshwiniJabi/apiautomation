@@ -31,4 +31,11 @@ public class TestDataBuild {
 		return addPlace;
 	}
 	
+	public String deleteApiPayload(String placeId) {
+		String payload ="{\n"
+				+ "    \"place_id\":\""+placeId+"\"\n"
+				+ "}";
+		return payload;
+		
+	}
 }

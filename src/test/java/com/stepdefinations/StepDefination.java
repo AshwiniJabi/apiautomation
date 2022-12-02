@@ -24,7 +24,7 @@ public class StepDefination extends SpecBuildersUtils {
 	JsonPath addPlaceResponnseJson;
 	Response response;
 	TestDataBuild payload=new TestDataBuild();
-	String placeId = null;
+	static String  placeId = null;
 	
 	
 	Properties prop= null;
@@ -66,6 +66,12 @@ public class StepDefination extends SpecBuildersUtils {
 					log().all().
 				extract().response();
 		}
+		else if(reuqestType.equalsIgnoreCase("DELETE")) {
+			//fetching the resource name using enum
+			response =requestbody.when().delete(resAPI.getResource()).then().spec(respSpec).
+					log().all().
+				extract().response();
+		}
 		
 	 
 	}
@@ -101,6 +107,14 @@ public class StepDefination extends SpecBuildersUtils {
 		assertEquals(name,nameRes);
 		
 		
+	}
+	
+	@Given("User has the payload for DeletePlace")
+	public void user_has_the_payload_for_delete_place() {
+	    // Write code here that turns the phrase above into concrete actions
+		String payloadDel= payload.deleteApiPayload(placeId);
+		requestbody= given().spec(request).log().all().body(payloadDel);
+		 
 	}
 
 
