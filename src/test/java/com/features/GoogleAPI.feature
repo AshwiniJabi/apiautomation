@@ -12,7 +12,7 @@ Feature: Validating the Google APIs
  |AAhouse|English|Shantinagar|
 # |BBHouse|French|Keshwapur|
 
-	@DeletePlace
+@DeletePlace
  Scenario Outline: Verify if delete place is working using DeletePLaceApi
  	Given User has the payload for DeletePlace
  	When User call the "DeletePLaceApi" "DELETE" http request

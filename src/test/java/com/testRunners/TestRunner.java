@@ -9,7 +9,8 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features = "src/test/java/com/features",
 		glue = {"com/stepdefinations"},
-		tags = "@Before and @DeletePlace"
+		plugin = {"json:target/jsonReports/CucumberReport.json"}
+		
 
 		)
 public class TestRunner {
